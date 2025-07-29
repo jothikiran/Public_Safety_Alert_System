@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="security-status">
+    <h2>Security Alerts</h2>
+    
+    <div class="panel">
+        <h3>Microphone Status</h3>
+        <ul class="status-list">
+            <li class="active">{{ status.microphone }}</li>
+        </ul>
+        <div class="system-status">
+            <p>Camera Status: {{ status.camera }}</p>
+            <p>Network Status: {{ status.network }}</p>
+            <p>System Uptime: {{ status.uptime }}</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

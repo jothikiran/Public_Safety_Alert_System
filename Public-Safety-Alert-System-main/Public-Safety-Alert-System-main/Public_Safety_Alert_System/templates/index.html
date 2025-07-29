@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="dashboard">
+    <div class="panel">
+        <h2>Real-time Gesture Detection</h2>
+        <div class="status-indicator live">Live</div>
+        
+        <div class="gesture-feed">
+            <img src="{{ url_for('video_feed') }}" alt="Live Camera Feed">
+            <div class="gesture-alert">
+                Gesture Detected: <span id="gesture-status">{{ gesture_detected }}</span>
+            </div>
+            <div class="sign-gesture">SIGN GESTURE</div>
+        </div>
+    </div>
+    
+    <div class="panel">
+        <h2>Noise Level Monitoring</h2>
+        <div class="status-indicator active">Active</div>
+        
+        <div class="noise-level">
+            <strong>Current Noise Level:</strong> <span id="noise-value">{{ noise_level }}</span> dB
+        </div>
+        
+        <div class="noise-meter">
+            <div class="noise-bar" style="width: calc({{ noise_level }}% * 0.65);"></div>
+            <div class="noise-labels">
+                <span>0 dB</span>
+                <span>50 dB</span>
+                <span>100 dB</span>
+                <span>120 dB</span>
+            </div>
+        </div>
+        
+        <div class="threshold-settings">
+            <strong>Alert Threshold Settings</strong>
+            <div class="threshold-value">52 dB</div>
+        </div>
+    </div>
+    
+    <div class="search-bar">
+        <input type="text" placeholder="Search">
+        <button>Search</button>
+    </div>
+</section>
+{% endblock %}
